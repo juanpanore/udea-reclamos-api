@@ -85,7 +85,7 @@ public class ReclamacionDao {
 					 reclamo.setDescripcion(Reclamo.get("motivoIncidente").toString());
 					 reclamo.setFechaIncidente(formatter.parse(Reclamo.get("fechaIncidente").toString()));
 					 reclamo.setLugarIncidente(Reclamo.get("lugarIncidente").toString());
-					reclamo.setValorReparacion((Double)Reclamo.get("valorReparacion"));
+					 reclamo.setValorReparacion(Double.parseDouble(Reclamo.get("valorReparacion").toString()));
 					 MotivoDto motivo = new MotivoDto();
 					 motivo.setNombre(Reclamo.get("motivoIncidente").toString());
 					 reclamo.setMotivo(motivo);
