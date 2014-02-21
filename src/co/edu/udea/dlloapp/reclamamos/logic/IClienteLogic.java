@@ -1,7 +1,5 @@
 package co.edu.udea.dlloapp.reclamamos.logic;
 
-import com.mongodb.DBObject;
-
 import co.edu.udea.dlloapp.reclamamos.dto.ClienteDto;
 
 /**
@@ -18,7 +16,7 @@ public interface IClienteLogic {
 	 * @author Cristian Correa
 	 * @param tipoDocumento Tipo de documento
 	 * @param numeroDocumento Número de documento
-	 * @return Cliente Dto
+	 * @return clienteDto Dto
 	 * @throws Exception
 	 */
 	ClienteDto consultarCliente(String tipoDocumento, String numeroDocumento)throws Exception;

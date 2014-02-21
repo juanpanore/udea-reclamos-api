@@ -17,7 +17,7 @@ public interface IMaestrosLogic {
 	 * Método que permite consultar la lista de motivos de incidentes.
 	 * 
 	 * @author Cristian Correa
-	 * @return Lista Motivos Dto
+	 * @return Lista listaMotivosDto Dto
 	 * @throws Exception
 	 */
 	List<MotivoDto> consultarListaMotivos()throws Exception;
