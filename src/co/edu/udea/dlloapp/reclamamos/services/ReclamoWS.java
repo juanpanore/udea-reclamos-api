@@ -15,6 +15,7 @@ import javax.ws.rs.core.MediaType;
 import co.edu.udea.dlloapp.reclamamos.dto.ClienteDto;
 import co.edu.udea.dlloapp.reclamamos.dto.MotivoDto;
 import co.edu.udea.dlloapp.reclamamos.dto.ReclamoDto;
+import co.edu.udea.dlloapp.reclamamos.dto.ResponseReclamos;
 import co.edu.udea.dlloapp.reclamamos.dto.TipoDocumentoDto;
 import co.edu.udea.dlloapp.reclamamos.logic.ClienteLogic;
 import co.edu.udea.dlloapp.reclamamos.logic.IClienteLogic;
@@ -29,7 +30,7 @@ public class ReclamoWS implements Serializable {
 	IMaestrosLogic maestrosLogic;
 	IClienteLogic clienteLogic;
 	IReclamacionLogic reclamacionLogic;
-
+	
 	@GET
 	@Path("/consultarListaMotivos")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -60,23 +61,6 @@ public class ReclamoWS implements Serializable {
 	}
 
 	@GET
-	@Path("/consultarCliente/{tipoDocumento}/{numeroDocumento}")
-	@Produces(MediaType.APPLICATION_JSON)
-	public ClienteDto consultarCliente(
-			@PathParam("tipoDocumento") String tipoDocumento,
-			@PathParam("numeroDocumento") String numeroDocumento) {
-		ClienteDto clienteDto = null;
-		clienteLogic = new ClienteLogic();
-		try {
-			clienteDto = clienteLogic.consultarCliente(tipoDocumento,
-					numeroDocumento);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return clienteDto;
-	}
-
-	@GET
 	@Path("/consultarListaReclamos")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<ReclamoDto> consultarListaReclamos() {
@@ -89,43 +73,52 @@ public class ReclamoWS implements Serializable {
 		}
 		return listaReclamos;
 	}
+	
+	@GET
+	@Path("/consultarDetalleReclamo/{codigo}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public ReclamoDto consultarDetalleReclamo(@PathParam("codigo") String codigo) {
+		ReclamoDto reclamo = null;
+		reclamacionLogic = new ReclamacionLogic();
+		try {
+			reclamo = reclamacionLogic.consultarDetalleReclamo(codigo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return reclamo;
+	}
 
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Path("/guardarIncidenteJson")
-	public Boolean guardarIncidenteJson(ReclamoDto reclamo) {
-		Boolean estado = false;
+	public ResponseReclamos guardarIncidenteJson(ReclamoDto reclamo) {
+		ResponseReclamos rs = null;
 		reclamacionLogic = new ReclamacionLogic();
 		try {
-			estado = reclamacionLogic.guardarIncidenteJson(reclamo);
+			rs = reclamacionLogic.guardarIncidenteJson(reclamo);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return estado;
+		return rs;
 	}
-
-	@POST
-	@Path("/guardarIncidente/{tipoDocumento}/{numeroDocumento}/{fechaIncidente}/{motivoIncidente}/{descripcionIncidente}/{valorReparacion}/{culpable}/{lugarIncidente}")
-	public Boolean guardarIncidente(
-			@PathParam("tipoDocumento") String tipoDocumento,
-			@PathParam("numeroDocumento") String numeroDocumento,
-			@PathParam("fechaIncidente") Date fechaIncedente,
-			@PathParam("motivoIncidente") String motivoIncidente,
-			@PathParam("descripcionIncidente") String descripcionIncidente,
-			@PathParam("valorReparacion") Double valorReparacion,
-			@PathParam("culpable") Boolean culpable,
-			@PathParam("lugarIncidente") String lugarIncidente) {
-		Boolean estado = false;
-		reclamacionLogic = new ReclamacionLogic();
-
+	
+	@GET
+	@Path("/consultarCliente/{idTipoDocumento}/{numeroDocumento}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public ClienteDto consultarCliente(
+			@PathParam("idTipoDocumento") Integer idTipoDocumento,
+			@PathParam("numeroDocumento") String numeroDocumento) {
+		ClienteDto clienteDto = null;
+		clienteLogic = new ClienteLogic();
 		try {
-			estado = reclamacionLogic.guardarIncidente(tipoDocumento, numeroDocumento,
-					fechaIncedente, motivoIncidente, descripcionIncidente,
-					valorReparacion, culpable, lugarIncidente);
+			clienteDto = clienteLogic.consultarCliente(idTipoDocumento,
+					numeroDocumento);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return estado;
+		return clienteDto;
 	}
+	
+
 }

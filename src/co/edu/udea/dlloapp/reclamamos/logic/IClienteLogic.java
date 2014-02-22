@@ -14,11 +14,11 @@ public interface IClienteLogic {
 	 * Método que permite consultar un cliente 
 	 * 
 	 * @author Cristian Correa
-	 * @param tipoDocumento Tipo de documento
+	 * @param idTipoDocumento Tipo de documento
 	 * @param numeroDocumento Número de documento
 	 * @return clienteDto Dto
 	 * @throws Exception
 	 */
-	ClienteDto consultarCliente(String tipoDocumento, String numeroDocumento)throws Exception;
+	ClienteDto consultarCliente(Integer idTipoDocumento, String numeroDocumento)throws Exception;
 
 }

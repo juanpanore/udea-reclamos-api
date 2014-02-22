@@ -7,10 +7,10 @@ public class ClienteLogic implements IClienteLogic {
 
 	ClienteDao clienteDao;
 	
-	public ClienteDto consultarCliente(String tipoDocumento,
+	public ClienteDto consultarCliente(Integer idTipoDocumento,
 			String numeroDocumento) throws Exception {
 		clienteDao = new ClienteDao();
-		return clienteDao.consultarCliente(tipoDocumento, numeroDocumento);
+		return clienteDao.consultarCliente(idTipoDocumento, numeroDocumento);
 	}
 
 }

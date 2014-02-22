@@ -5,6 +5,9 @@ import java.util.Date;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.mongodb.BasicDBObject;
+import com.mongodb.DBObject;
+
 @XmlRootElement
 public class ClienteDto implements Serializable{
 
@@ -13,7 +16,7 @@ public class ClienteDto implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	String tipoDocumento;
+	TipoDocumentoDto tipoDocumento;
 	String numeroDocumento;
 	String primerNombre;
 	String segundoNombre;
@@ -27,7 +30,7 @@ public class ClienteDto implements Serializable{
 		
 	}
 
-	public ClienteDto(String tipoDocumento, String numeroDocumento,
+	public ClienteDto(TipoDocumentoDto tipoDocumento, String numeroDocumento,
 			String primerNombre, String segundoNombre, String primerApellido,
 			String segundoApellido, String tipoCliente, Date fechaNacimiento,
 			PolizaDto poliza) {
@@ -43,11 +46,11 @@ public class ClienteDto implements Serializable{
 		this.poliza = poliza;
 	}
 
-	public String getTipoDocumento() {
+	public TipoDocumentoDto getTipoDocumento() {
 		return tipoDocumento;
 	}
 
-	public void setTipoDocumento(String tipoDocumento) {
+	public void setTipoDocumento(TipoDocumentoDto tipoDocumento) {
 		this.tipoDocumento = tipoDocumento;
 	}
 
@@ -113,6 +116,32 @@ public class ClienteDto implements Serializable{
 
 	public void setPoliza(PolizaDto poliza) {
 		this.poliza = poliza;
+	}
+
+	public void convertJsonToDto(DBObject clienteJson) {
+		
+		DBObject tipoDocumentoJson = (BasicDBObject) clienteJson.get("tipoDocumento");
+		TipoDocumentoDto tipoDocumentoDto = new TipoDocumentoDto();
+		tipoDocumentoDto.setId(Integer.parseInt(tipoDocumentoJson.get("id").toString()));
+		tipoDocumentoDto.setNombre(tipoDocumentoJson.get("nombre").toString());
+		setTipoDocumento(tipoDocumentoDto);
+		
+		setNumeroDocumento(clienteJson.get("numeroDocumento").toString());
+		setPrimerNombre(clienteJson.get("primerNombre").toString());
+		setSegundoNombre(clienteJson.get("segundoNombre").toString());
+		setPrimerApellido(clienteJson.get("primerApellido").toString());
+		setSegundoApellido(clienteJson.get("segundoApellido").toString());
+		setTipoCliente(clienteJson.get("tipoCliente").toString());
+		setFechaNacimiento(new Date(Long.parseLong(clienteJson.get("fechaNacimiento").toString())));
+
+		DBObject polizaJson = (BasicDBObject) clienteJson.get("Poliza");
+		PolizaDto polizaDto = new PolizaDto();
+		polizaDto.setTipoVehiculo(polizaJson.get("tipoVehiculo").toString());
+		polizaDto.setReferencia(polizaJson.get("referencia").toString());
+		polizaDto.setNumeroPoliza(polizaJson.get("numeroPoliza").toString());
+		polizaDto.setFechaInicioVigencia(new Date(Long.parseLong(polizaJson.get("fechaInicioVigencia").toString())));
+		polizaDto.setFechaFinVigencia(new Date(Long.parseLong(polizaJson.get("fechaFinVigencia").toString())));
+		setPoliza(polizaDto);
 	}
 	
 	

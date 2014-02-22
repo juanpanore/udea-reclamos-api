@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import co.edu.udea.dlloapp.reclamamos.dto.ReclamoDto;
+import co.edu.udea.dlloapp.reclamamos.dto.ResponseReclamos;
 
 /**
  * Interface lógica de negocios para las reclamaciones.
@@ -15,40 +16,31 @@ import co.edu.udea.dlloapp.reclamamos.dto.ReclamoDto;
 public interface IReclamacionLogic {
 
 	/**
-	 * Método que permite conslutar la lista de reclamos en general.
+	 * Método que permite consultar un reclamo determinado
 	 * 
 	 * @author Cristian Correa
-	 * @return Lista Reclamos Dto
+	 * @return Reclamo {@link ReclamoDto}
 	 * @throws Exception
 	 */
-	List<ReclamoDto> consultarListaReclamos() throws Exception;
+	ReclamoDto consultarDetalleReclamo(String codigo) throws Exception;
 
 	/**
 	 * Método que permite guardar la información de un incidente o reclamación con un objeto reclamoDto
 	 * 
 	 * @author Cristian Correa
-	 * @param reclamo Reclamo o incidente
-	 * @return Estado del proceso. True si es correcto, False si no es correcto.
+	 * @param reclamo Reclamo o incidente {@link ReclamoDto}
+	 * @return Response de Reclamos donde almacena un estado y un mensaje {@link ResponseReclamos}
 	 * @throws Exception
 	 */
-	Boolean guardarIncidenteJson(ReclamoDto reclamo)throws Exception;
+	ResponseReclamos guardarIncidenteJson(ReclamoDto reclamo)throws Exception;
 
 	/**
-	 * Método que permite guardar la información de un incidente o reclamación recibiendo los parámetros.
+	 * Método que permite consultar la lista de reclamos en general
 	 * 
-	 * @param numeroDocumento
-	 * @param tipoDocumento 
-	 * @param fechaIncedente
-	 * @param motivoIncidente
-	 * @param descripcionIncidente
-	 * @param valorReparacion
-	 * @param culpable
-	 * @param lugarIncidente
-	 * @return
+	 * @author Cristian Correa
+	 * @return Lista de reclamos {@link ReclamoDto}
 	 * @throws Exception
 	 */
-	Boolean guardarIncidente(String tipoDocumento, String numeroDocumento, Date fechaIncedente,
-			String motivoIncidente, String descripcionIncidente,
-			Double valorReparacion, Boolean culpable, String lugarIncidente)throws Exception;
-
+	List<ReclamoDto> consultarListaReclamos()throws Exception;
+	
 }

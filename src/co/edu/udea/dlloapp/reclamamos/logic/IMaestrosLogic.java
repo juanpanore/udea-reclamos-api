@@ -3,6 +3,7 @@ package co.edu.udea.dlloapp.reclamamos.logic;
 import java.util.List;
 
 import co.edu.udea.dlloapp.reclamamos.dto.MotivoDto;
+import co.edu.udea.dlloapp.reclamamos.dto.ReclamoDto;
 import co.edu.udea.dlloapp.reclamamos.dto.TipoDocumentoDto;
 
 /**
@@ -30,5 +31,4 @@ public interface IMaestrosLogic {
 	 * @throws Exception
 	 */
 	List<TipoDocumentoDto> consultarTiposDocumentos()throws Exception;
-
 }

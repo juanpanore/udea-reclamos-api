@@ -4,6 +4,7 @@ import java.util.List;
 
 import co.edu.udea.dlloapp.reclamamos.dataaccess.MaestrosDao;
 import co.edu.udea.dlloapp.reclamamos.dto.MotivoDto;
+import co.edu.udea.dlloapp.reclamamos.dto.ReclamoDto;
 import co.edu.udea.dlloapp.reclamamos.dto.TipoDocumentoDto;
 
 public class MaestrosLogic implements IMaestrosLogic {
@@ -19,5 +20,4 @@ public class MaestrosLogic implements IMaestrosLogic {
 		maestrosDao = new MaestrosDao();
 		return maestrosDao.consultarTiposDocumentos();
 	}
-
 }
