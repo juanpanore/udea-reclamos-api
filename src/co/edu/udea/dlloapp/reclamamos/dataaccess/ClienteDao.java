@@ -1,6 +1,9 @@
 package co.edu.udea.dlloapp.reclamamos.dataaccess;
 
+
 import java.net.UnknownHostException;
+import java.util.ArrayList;
+import java.util.List;
 
 import co.edu.udea.dlloapp.reclamamos.dto.ClienteDto;
 import co.edu.udea.dlloapp.reclamamos.dto.TipoDocumentoDto;
@@ -15,7 +18,7 @@ import com.mongodb.MongoClientURI;
 
 /*
  * 
- * @autor Juan Pa Noreña
+ * @autor Juan Pa Noreï¿½a
  * 
  * 
  * */
@@ -32,24 +35,19 @@ public class ClienteDao {
 			MongoClient client = new MongoClient(uri);
 			DB db = client.getDB(uri.getDatabase());
 			
-			DBCollection tiposDocumentos = db.getCollection("TipoDocumento");
-			BasicDBObject queryTipoDocumento = new BasicDBObject();
-			queryTipoDocumento.put("id", idTipoDocumento);
-			DBCursor cursorTiposDocumentos = tiposDocumentos.find(queryTipoDocumento);
-			DBObject tipoDocumentoJson = cursorTiposDocumentos.next();
 
-			TipoDocumentoDto tipoDto = new TipoDocumentoDto();
-			tipoDto.setId(Integer.parseInt(tipoDocumentoJson.get("id").toString()));
-			tipoDto.setNombre(tipoDocumentoJson.get("nombre").toString());
 			
 			DBCollection Clientes = db.getCollection("Clientes");
-			BasicDBObject query = new BasicDBObject();
-			query.put("tipoDocumento", tipoDto);
-			query.put("numeroDocumento", numeroDocumento);
-			DBCursor cursor = Clientes.find(query);
+			BasicDBObject andQuery= new BasicDBObject();
+			List<BasicDBObject> query = new ArrayList<BasicDBObject>();
+			query.add(new BasicDBObject("tipoDocumento.id", idTipoDocumento.toString()));
+			query.add(new BasicDBObject("numeroDocumento", numeroDocumento));
+			andQuery.put("$and", query);
+			DBCursor cursor = Clientes.find(andQuery);
 			DBObject clienteJson = cursor.next();
 
 			ClienteDto clienteDto = new ClienteDto();
+		
 
 			clienteDto.convertJsonToDto(clienteJson);
 
