@@ -1,8 +1,6 @@
 package co.edu.udea.dllapp.reclamamos.testClienteWs;
 
-import static org.junit.Assert.*;
 
-import java.util.Date;
 
 import org.junit.Test;
 
@@ -31,7 +29,7 @@ public class TestClientWs {
 				+ "\"id\": \"1\", "
 				+ "\"nombre\": \"Choque\" " 
 				+ "}, "
-				+ "\"descripcion\": \"Descripción del choque\", "
+				+ "\"descripcion\": \"Descripciï¿½n del choque\", "
 				+ "\"valorReparacion\": \"300000.0\", "
 				+ "\"culpable\": \"true\", "
 				+ "\"lugarIncidente\": \"Envigado\" "

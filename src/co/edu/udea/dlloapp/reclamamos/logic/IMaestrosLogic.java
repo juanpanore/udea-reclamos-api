@@ -3,11 +3,11 @@ package co.edu.udea.dlloapp.reclamamos.logic;
 import java.util.List;
 
 import co.edu.udea.dlloapp.reclamamos.dto.MotivoDto;
-import co.edu.udea.dlloapp.reclamamos.dto.ReclamoDto;
+
 import co.edu.udea.dlloapp.reclamamos.dto.TipoDocumentoDto;
 
 /**
- * Interface de la lógica de negocio para los maestros.
+ * Interface de la lï¿½gica de negocio para los maestros.
  * 
  * @author Cristian Correa
  *
@@ -15,7 +15,7 @@ import co.edu.udea.dlloapp.reclamamos.dto.TipoDocumentoDto;
 public interface IMaestrosLogic {
 
 	/**
-	 * Método que permite consultar la lista de motivos de incidentes.
+	 * Mï¿½todo que permite consultar la lista de motivos de incidentes.
 	 * 
 	 * @author Cristian Correa
 	 * @return Lista listaMotivosDto Dto
@@ -24,7 +24,7 @@ public interface IMaestrosLogic {
 	List<MotivoDto> consultarListaMotivos()throws Exception;
 
 	/**
-	 * Método que permite conslutar la lista de tipos de documentos.
+	 * Mï¿½todo que permite conslutar la lista de tipos de documentos.
 	 * 
 	 * @author Cristian Correa
 	 * @return Lista Tipos Documentos Dto

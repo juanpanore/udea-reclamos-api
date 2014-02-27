@@ -1,7 +1,6 @@
 package co.edu.udea.dlloapp.reclamamos.services;
 
 import java.io.Serializable;
-import java.util.Date;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
@@ -24,6 +23,7 @@ import co.edu.udea.dlloapp.reclamamos.logic.IReclamacionLogic;
 import co.edu.udea.dlloapp.reclamamos.logic.MaestrosLogic;
 import co.edu.udea.dlloapp.reclamamos.logic.ReclamacionLogic;
 
+@SuppressWarnings("serial")
 @Path("/ReclamamosApiService")
 public class ReclamoWS implements Serializable {
 

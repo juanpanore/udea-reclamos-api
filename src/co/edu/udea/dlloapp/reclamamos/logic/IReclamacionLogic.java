@@ -1,14 +1,14 @@
 
 package co.edu.udea.dlloapp.reclamamos.logic;
 
-import java.util.Date;
+
 import java.util.List;
 
 import co.edu.udea.dlloapp.reclamamos.dto.ReclamoDto;
 import co.edu.udea.dlloapp.reclamamos.dto.ResponseReclamos;
 
 /**
- * Interface lógica de negocios para las reclamaciones.
+ * Interface lï¿½gica de negocios para las reclamaciones.
  * 
  * @author Cristian Correa
  *
@@ -16,7 +16,7 @@ import co.edu.udea.dlloapp.reclamamos.dto.ResponseReclamos;
 public interface IReclamacionLogic {
 
 	/**
-	 * Método que permite consultar un reclamo determinado
+	 * Mï¿½todo que permite consultar un reclamo determinado
 	 * 
 	 * @author Cristian Correa
 	 * @return Reclamo {@link ReclamoDto}
@@ -25,7 +25,7 @@ public interface IReclamacionLogic {
 	ReclamoDto consultarDetalleReclamo(String codigo) throws Exception;
 
 	/**
-	 * Método que permite guardar la información de un incidente o reclamación con un objeto reclamoDto
+	 * Mï¿½todo que permite guardar la informaciï¿½n de un incidente o reclamaciï¿½n con un objeto reclamoDto
 	 * 
 	 * @author Cristian Correa
 	 * @param reclamo Reclamo o incidente {@link ReclamoDto}
@@ -35,7 +35,7 @@ public interface IReclamacionLogic {
 	ResponseReclamos guardarIncidenteJson(ReclamoDto reclamo)throws Exception;
 
 	/**
-	 * Método que permite consultar la lista de reclamos en general
+	 * Mï¿½todo que permite consultar la lista de reclamos en general
 	 * 
 	 * @author Cristian Correa
 	 * @return Lista de reclamos {@link ReclamoDto}

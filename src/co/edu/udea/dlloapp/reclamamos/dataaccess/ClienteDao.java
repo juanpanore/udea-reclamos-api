@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import co.edu.udea.dlloapp.reclamamos.dto.ClienteDto;
-import co.edu.udea.dlloapp.reclamamos.dto.TipoDocumentoDto;
+
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
