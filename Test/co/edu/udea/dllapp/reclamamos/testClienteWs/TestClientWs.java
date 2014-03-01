@@ -10,7 +10,7 @@ import com.sun.jersey.api.client.WebResource;
 
 public class TestClientWs {
 
-	public static final String URI_RECLAMOS = "http://localhost:8080/Api-Reclamamos-UdeA/webservices/ReclamamosApiService/guardarIncidenteJson";
+	public static final String URI_RECLAMOS = "http://udea-reclamamos-api.herokuapp.com/rest/ReclamamosApiService/guardarIncidenteJson";
 
 	@Test
 	public void testGuardarReclamo() {
@@ -23,8 +23,8 @@ public class TestClientWs {
 				+ "\"id\": \"1\", "
 				+ "\"nombre\": \"C.C.\" " 
 				+ "}, "
-				+ "\"numeroDocumento\":\"8102886\"," 
-				+ "\"fechaIncidente\":\"2014-02-04T21:10:35.257-05:00\", "
+				+ "\"numeroDocumento\":\"81028869\"," 
+				+ "\"fechaIncidente\":\"2014-03-01T21:10:35.257-05:00\", "
 				+ "\"motivo\":{ " 
 				+ "\"id\": \"1\", "
 				+ "\"nombre\": \"Choque\" " 
