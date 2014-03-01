@@ -2,9 +2,50 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Reclamamos-Api</title>
+<title> Reclamamos-Api</title>
+<style type="text/css">
+h1{
+text-align: center;
+
+}
+#footer{
+text-align: center;
+background-color: #808080
+}
+
+#cuerpo{
+	background-color: #ADD8E6;
+	
+}
+</style>
 </head>
 <body>
-<h1>Reclamos api</h1>
+<div id= "titulo">
+<h1>Servicios Reclamos api</h1>
+</div>
+<div id="cuerpo">
+  <a href = "http://udea-reclamamos-api.herokuapp.com/rest/ReclamamosApiService/consultarTiposDocumentos"target="_blank">
+       <h3> Servicio rest consutar Tipo de documentos</h3> 
+   </a>
+   <a href = "http://udea-reclamamos-api.herokuapp.com/rest/ReclamamosApiService/consultarListaMotivos"target="_blank">
+       <h3> Servicio rest consutar Lista de motivos</h3> 
+   </a>
+    <a href = "http://udea-reclamamos-api.herokuapp.com/rest/ReclamamosApiService/consultarCliente/1/8102886"target="_blank">
+       <h3> Servicio rest consutar un Cliente{idDocumentos,numeroDocumento}</h3> 
+   </a>
+    
+    <a href = "http://udea-reclamamos-api.herokuapp.com/rest/ReclamamosApiService/consultarListaReclamos"target="_blank">
+       <h3> Servicio rest consutar Lista de reclamaciones</h3> 
+   </a>
+    <a href = "http://udea-reclamamos-api.herokuapp.com/rest/ReclamamosApiService/consultarDetalleReclamo/1393042367495"target="_blank">
+       <h3> Servicio rest consutar el detalle de un reclamo</h3> 
+   </a>
+ </div> 
+ <div id="footer">
+ 	<h3>Juan Pablo Noreña</h3>
+ 	<h3>Cristian Camilo Correa</h3>
+ 	<h3>Yefrey Marin</h3>
+ 	<h3>Juan Esteban Cardona</h3>
+ </div> 
 </body>
 </html>
